@@ -1,0 +1,39 @@
+div.flp0{
+    float: left; 
+    padding: 0;
+}
+div.fr{
+    float: right; 
+    /*padding: 0;*/
+}
+.fr{
+    float: right; 
+   margin-right:  10px;
+    /*padding: 0;*/
+}
+.frp0{
+    float: right; 
+    padding: 0;
+}
+th, tr{
+    text-align: center;
+}
+td,th{
+    cursor:pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+.attended{
+    background:darkcyan;
+}
+.twoAbsent{
+    color: blue;
+}
+.threeAbsent{
+    color: red;
+}
+
+.label_custom{
+font-size: 15px;
+padding: 0px;
+}
