@@ -97,10 +97,23 @@ class awamangala extends Controller {
 //        $this->view->freeList = $this->model->releasedMemList();
         $this->view->render('awamangala/addDeths'); //sending paramiters to View() at lib/view.php
     }
+    function bankAccounts() {//for bank account details
+        $this->view->title = 'එක්සත් අවමංගල්‍යාධාර සමිතිය';
+    //    $this->view->bankAccounts = $this->model->bankAccounts();
+        $this->view->render('awamangala/bankAccounts'); //sending paramiters to View() at lib/view.php
+    }
+
     function addFines() {//for adding fines
         $this->view->title = 'එක්සත් අවමංගල්‍යාධාර සමිතිය';
-//        $this->view->freeList = $this->model->releasedMemList();
+       $this->view->fineTypes = $this->model->fineTypes();
         $this->view->render('awamangala/addFines'); //sending paramiters to View() at lib/view.php
+    }
+    function addPayments() {//for adding all payments
+        // echo 'addPayments';
+        // die;
+        $this->view->title = 'එක්සත් අවමංගල්‍යාධාර සමිතිය';
+    //    $this->view->fineTypes = $this->model->fineTypes();
+        $this->view->render('awamangala/addPayments'); //sending paramiters to View() at lib/view.php
     }
 
     function deed() {//for updating searced id

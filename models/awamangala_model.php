@@ -42,14 +42,19 @@ class awamangala_model extends Model {
         return $this->db->select('SELECT * FROM finesanddues WHERE awaMemId=:awaMemId  ORDER BY date DESC  ', array(':awaMemId' => $awaMemId));
     }
     
+    public function fineTypes() {
+        return $this->db->select('SELECT distinct reson FROM finesandpayments   ORDER BY date DESC  ', array());
+    }
+    
     public function finesAndPaymentsList() {
-         $membership = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'membership'));
-        $attendance = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'attendance'));
-        $comWorks = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'comWorks'));
-        $cemetry = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'cemetry'));
-        $funaral = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'funaral'));
+         $membership = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'සාමාජික මුදල'));
+        $attendance = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'මහා සභාවට නොපැමිනීම'));
+        $comWorks = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'ශ්‍රම දානයට සහභාගී නොවීම්'));
+        $cemetry = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'සුසාන භූමියේ කටයුතු වලට සහභාගී නොවීම'));
+        $funaral = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'අවමංගල්‍යට සහභාගී නොවීම'));
+        $misbehaviour = $this->db->select('SELECT * FROM finesandpayments  WHERE reson=:reson ORDER BY date DESC LIMIT 1' , array(':reson' => 'ව්‍යවස්ථාව උල්ලංගනය'));
         
-        $result[]=array("membership"=>$membership, 'attendance'=>$attendance, 'comWorks'=>$comWorks, 'cemetry'=>$cemetry, 'funaral'=>$funaral);
+        $result[]=array("membership"=>$membership, 'attendance'=>$attendance, 'comWorks'=>$comWorks, 'cemetry'=>$cemetry, 'funaral'=>$funaral, 'misbehaviour'=>$misbehaviour);
         return $result;
     }
 
@@ -524,6 +529,10 @@ class awamangala_model extends Model {
 //        }
         return $message;
     }
+
+public function bankAccounts(){
+    $message = $this->db->select('SELECT * FROM bankaccounts  WHERE awaMemId = :awaMemId', array(':awaMemId' => $awaMemId));
+}
 
     public function deleteMem($awaMemId) {
 //        if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {//checking for admin

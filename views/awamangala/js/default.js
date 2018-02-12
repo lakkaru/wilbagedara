@@ -261,7 +261,7 @@ $(document).ready(function () {
         return false;
     })
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    $("#searchDiv").click(function () {//member search by devision
+    $("#searchDiv").click(function () {//members search by devision
         var urlMem = $('#searchDivForm').attr('action');
         var data = $('#searchDivForm').serialize();
         $.post(urlMem, data, function (callback) {//posting data to get return value
@@ -285,6 +285,42 @@ $(document).ready(function () {
 //        alert(members);
         return false;
     });
+
+    ///////////////////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    $("#searchAcc").click(function () {//members search by devision
+        var urlMem = $('#searchAccForm').attr('action');
+        var data = $('#searchAccForm').serialize();
+        $.post(urlMem, data, function (callback) {//posting data to get return value
+//              alert(callback[0].awaMemId);
+            $('#bankAccounts').DataTable({
+             
+                "data": callback,
+                "columns": [{
+                        "data": "bank"
+                    }, {
+                        "data": "accNo"
+                    }, {
+                        "data": "date"
+                    }, {
+                        "data": "deposit"
+                    }, {
+                        "data": "interest"
+                    }, {
+                        "data": "withdrowal"
+                    }, {
+                        "data": "balance"
+                    },
+                ],
+                destroy: true, //avoid multy initializing data table
+            });
+        }, 'json');
+//        alert(members);
+        return false;
+    });
+
+    ///////////////////////////////////////////////////////////////////////
     $('#awaMemId').click(function () {//member search for deth adding
         $('#name').find('option').remove().end(); //removing option values in select
         $('#area').val(''); //removing values in area

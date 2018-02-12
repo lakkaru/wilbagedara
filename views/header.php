@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="<?php echo URL; ?>public/css/jquery-ui.theme.min.css"/>
         <link rel="stylesheet" href="<?php echo URL; ?>public/font-awesome-4.7.0/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="<?php echo URL; ?>public/css/default.css"/> 
-
+            
 
         <script type="text/javascript" src="<?php echo URL; ?>public/js/jquery.js"></script>
         <script type="text/javascript" src="<?php echo URL; ?>public/js/bootstrap.min.js"></script>
@@ -173,6 +173,8 @@
                                             <ul class="dropdown-menu">
                                                 <li><a tabindex="-1" href="<?php echo URL ?>awamangala/finesAndPayments">සාමාජික මුදල සහ අය කිරීම්</a></li>
                                                 <li class="divider"></li>
+                                                <li><a tabindex="-1" href="<?php echo URL ?>awamangala/bankAccounts">බැංකු ගිණුම්</a></li>
+                                                <li class="divider"></li>
                                                 <li class="dropdown-submenu">
                                                     <a href="#">හිඟ මුදල්</a>
                                                     <ul class="dropdown-menu">
@@ -227,7 +229,7 @@
                                                 if (Session::get('rank') <> 'භාණ්ඩාගාරික') {
                                                     echo "class='disabled'";
                                                 }
-                                                ?>><a tabindex="-1" href="#">සියලුම මුදල් ගෙවීම් ඇතුල් කිරීම</a></li>
+                                                ?>><a tabindex="-1" href="<?php echo URL ?>awamangala/addPayments">සියලුම මුදල් ගෙවීම් ඇතුල් කිරීම</a></li>
 
                                                 <li class="divider"></li>
                                                 <li <?php
