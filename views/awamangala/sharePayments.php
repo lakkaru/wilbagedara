@@ -3,7 +3,7 @@
         <legend class="lead">අතිරේක ආධාර හිඟ </legend>
     </div>
     <div class="col-lg-3">
-        <form method="post" id="paymentsForm" class="form-horizontal validateForm" action="<?php echo URL; ?>awamangala/createPayments/extrafundsdue" >         
+        <form method="post" id="sharePaymentsForm" class="form-horizontal validateForm" action="<?php echo URL; ?>awamangala/createPayments/sharePaymentsForms" >         
             <div class="col-lg-12 well">
                 <div class="form-group">
                     <div class=" col-lg-5">
@@ -41,11 +41,11 @@
         <div class="row well">
             <div class="container-fluid  form-inline ">
                 <div class="row">
-                    <button id="addToDb" onclick="createPaymentsArray()" class="btn btn-info center-block" style="margin-bottom: 20px">නව අතිරේක ආධාර හිඟ මුදල් තොරතුරු පද්ධතියට ඇතුලු කරන්න</button>
+                    <button id="addToDb" onclick="createSharePaymentsArray()" class="btn btn-info center-block" style="margin-bottom: 20px">නව අතිරේක ආධාර හිඟ මුදල් තොරතුරු පද්ධතියට ඇතුලු කරන්න</button>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <table id="payments" class="table table-striped table-bordered " cellspacing="0" width="100%" role="grid">
+                        <table id="sharePayments" class="table table-striped table-bordered " cellspacing="0" width="100%" role="grid">
                             <thead>
                                 <tr role="row">
                                     <th    rowspan="1" colspan="1"  >ගෙවූ දිනය</th>

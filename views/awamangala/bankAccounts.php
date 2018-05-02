@@ -34,10 +34,10 @@
                     </div>
                 </div>
                 <div class="col-xs-1 col-md-2" >
-                    <button type="button" id="searchDiv" class="btn btn-success">සොයන්න&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+                    <button type="button" id="searchAcc" class="btn btn-success">සොයන්න&nbsp;<span class="glyphicon glyphicon-search"></span></button>
                 </div>
                 <div class="col-xs-1 col-md-2" >
-                    <button type="button" id="searchDiv" class="btn btn-success">ඇතුලත් කරන්න&nbsp;<span class="glyphicon glyphicon-plus"></span></button>
+                    <button type="button" id="addAcc" class="btn btn-success">ඇතුලත් කරන්න&nbsp;<span class="glyphicon glyphicon-plus"></span></button>
                 </div>
             </div>
         </form>

@@ -262,7 +262,7 @@ class awamangala_model extends Model {
         return $message;
     }
 
-    function ajaxAttendance($date, $attendance, $attendanceType) {//getting membership payments infor
+    function ajaxAttendance($date, $attendance, $attendanceType) {//
         $message = $this->db->insert($attendanceType, array(
             'date' => $date,
             'attendance' => serialize($attendance)//seralizing array data
@@ -530,7 +530,7 @@ class awamangala_model extends Model {
         return $message;
     }
 
-public function bankAccounts(){
+public function bankAccounts(){//serching bank acount details
     $message = $this->db->select('SELECT * FROM bankaccounts  WHERE awaMemId = :awaMemId', array(':awaMemId' => $awaMemId));
 }
 

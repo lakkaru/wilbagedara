@@ -144,11 +144,68 @@ class awamangala extends Controller {
         $this->view->render('awamangala/extraFundsDue'); //sending paramiters to View() at lib/view.php
     }
     function addMeetingAttendance() {//for share payments
-        $this->view->title = 'එක්සත් අවමංගල්‍යාධාර සමිතිය';
-        $this->view->lastMonthAttendanceList= $this->model->lastMonthAttendanceList();
-        $this->view->twoMonthsAgoAttendanceList= $this->model->twoMonthsAgoAttendanceList();
-        $this->view->threeMonthsAgoAttendanceList= $this->model->threeMonthsAgoAttendanceList();
-        $this->view->memberList= $this->model->memberList();
+     $this->view->title = 'එක්සත් අවමංගල්‍යාධාර සමිතිය';
+       $lastMonthAttendanceList= $this->model->lastMonthAttendanceList();
+        $twoMonthsAgoAttendanceList= $this->model->twoMonthsAgoAttendanceList();
+        $threeMonthsAgoAttendanceList= $this->model->threeMonthsAgoAttendanceList();
+        $memberList= $this->model->memberList();
+       //        unset($this->memberList[0]);
+//$array = array_values($this->memberList); 
+        $idArray = array();
+//        $lastMonthAttendanceList = array();
+//        $twoMonthsAgoAttendanceList = array();
+//        $threeMonthsAgoAttendanceList = array();
+
+        foreach ($memberList as $awaMemId) {//getting array with awaMemId key
+            foreach ($awaMemId as $memId) {//removing key from array
+                array_push($idArray, $memId); //creating values array
+            }
+        }
+        if (!empty($lastMonthAttendanceList)) {
+            $lastMonthAttendanceList = unserialize($lastMonthAttendanceList[0]['attendance']); //last month attendance ids
+        } else {
+            $lastMonthAttendanceList = [];
+        }
+//        foreach ($a as $awaMemId) {//getting array with key
+//            foreach ($awaMemId as $memId) {//removing key from array
+//                array_push($lastMonthAttendanceList, $awaMemId);//creating values array
+//            }
+//        }
+        if (!empty($twoMonthsAgoAttendanceList)) {
+            $twoMonthsAgoAttendanceList = unserialize($twoMonthsAgoAttendanceList[0]['attendance']); //beforelast month attendance ids
+        } else {
+            $twoMonthsAgoAttendanceList = [];
+        }
+        if (!empty($threeMonthsAgoAttendanceList)) {
+            $threeMonthsAgoAttendanceList = unserialize($threeMonthsAgoAttendanceList[0]['attendance']); //before two months attendance ids
+        } else {
+            $threeMonthsAgoAttendanceList = [];
+        }
+//            foreach ($awaMemId as $memId) {//removing key from array
+//                array_push($beforLastMonthAttendanceList, $memId);//creating values array
+//            }
+//        }
+//        print_r($idArray); die;
+
+        $lastMonthAbsent = array_diff($idArray, $lastMonthAttendanceList);
+//        print_r($lastMonthAbsent);die;
+        $twoMonthsAgoAbsent = array_diff($idArray, $twoMonthsAgoAttendanceList);
+//        print_r($twoMonthsAgoAbsent);die;
+        $threeMonthsAgoAbsent = array_diff($idArray, $threeMonthsAgoAttendanceList);
+//        print_r($threeMonthsAgoAbsent); die;
+
+        $twoMonthsConcecative = array_intersect($lastMonthAbsent, $twoMonthsAgoAbsent);
+//        print_r($twoMonthsConcecative); die;
+        $threeMonthsConcecative = array_intersect($lastMonthAbsent, $twoMonthsAgoAbsent, $threeMonthsAgoAbsent);
+//        print_r($threeMonthsConcecative);die;
+//print_r($twoMonthsConcecative);die;
+//        print_r($idArray);die;
+
+       
+        $this->view->twoMonthsConcecative= $twoMonthsConcecative;
+        $this->view->threeMonthsConcecative= $threeMonthsConcecative;
+        $this->view->idArray= $idArray;
+        
         $this->view->render('awamangala/addMeetingAttendance'); //sending paramiters to View() at lib/view.php
         
     }

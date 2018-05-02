@@ -103,7 +103,7 @@
                                 <li >
                                     <?php if (Session::get('loggedIn') == FALSE): ?><a href="<?php echo URL; ?>userLogin/officer" style="color: green" > නිළධාරී ඇතුල් වීම <span class="glyphicon glyphicon-off"></span></a><li class="divider"></li>
                                     <?php endif; ?>
-                                            <?php if ((Session::get('loggedIn') == 'user') or ( Session::get('loggedIn') == 'officer')): ?><a id="logout" href="<?php echo URL; ?>userLogin/logout"  style="color: #F9621D" >පිටවීම<span class="glyphicon glyphicon-off"></span></a><li class="divider"></li>
+                                            <?php if ((Session::get('loggedIn') == 'user') or ( Session::get('loggedIn') == 'officers')): ?><a id="logout" href="<?php echo URL; ?>userLogin/logout"  style="color: #F9621D" >පිටවීම<span class="glyphicon glyphicon-off"></span></a><li class="divider"></li>
                                             <?php endif; ?>
 
                                 <li >
@@ -143,7 +143,7 @@
                                                         ?>><a href="<?php echo URL ?>awamangala/searchMember">සාමාජික අංකයෙන්</a></li>
                                                         <li class="divider"></li>
                                                         <li <?php
-                                                        if (Session::get('loggedIn') <> 'officer') {
+                                                        if (Session::get('loggedIn') <> 'officers') {
                                                             echo "class='disabled'";
                                                         }
                                                         ?>><a href="<?php echo URL ?>awamangala/searchDivision">ගංගොඩ වශයෙන්</a></li>
@@ -176,7 +176,7 @@
                                                 <li><a tabindex="-1" href="<?php echo URL ?>awamangala/bankAccounts">බැංකු ගිණුම්</a></li>
                                                 <li class="divider"></li>
                                                 <li class="dropdown-submenu">
-                                                    <a href="#">හිඟ මුදල්</a>
+                                                    <a href="#">සාමාජික හිඟ මුදල්</a>
                                                     <ul class="dropdown-menu">
                                                         <li <?php
                                                         if (Session::get('loggedIn') == FALSE) {
@@ -195,12 +195,7 @@
                                                         </li>
                                                     </ul>
                                                 <li class="divider"></li>
-                                                <li <?php
-                                                if ((Session::get('loggedIn') == FALSE)) {
-                                                    echo "class='disabled'";
-                                                }
-                                                ?>><a tabindex="-1" href="<?php echo URL ?>awamangala/pastPayments">පසු ගිය මුදල් ගෙවීම් සොයා බැලීම</a></li>
-                                                <li class="divider"></li>
+                                               
                                                 <li <?php
                                                 if (Session::get('rank') <> 'භාණ්ඩාගාරික') {
                                                     echo "class='disabled'";
@@ -224,6 +219,12 @@
                                                         ?>><a href="<?php echo URL ?>awamangala/sharePayments">කොටස් මුදල්</a></li>
                                                     </ul>
                                                 </li>
+                                                <li class="divider"></li>
+                                                 <li <?php
+                                                if ((Session::get('loggedIn') == FALSE)) {
+                                                    echo "class='disabled'";
+                                                }
+                                                ?>><a tabindex="-1" href="<?php echo URL ?>awamangala/pastPayments">පසු ගිය මුදල් ලැබීම් සොයා බැලීම</a></li>
                                                 <li class="divider"></li>
                                                 <li <?php
                                                 if (Session::get('rank') <> 'භාණ්ඩාගාරික') {
@@ -311,25 +312,25 @@
                                         <li><a tabindex="-1" href="#">සාමාජිකත්ව ඉල්ලුම්/යාවත්කාල කිරීම්</a></li>
                                         <li class="divider"></li>
                                         <li <?php
-                                        if (Session::get('loggedIn') <> 'officer') {
+                                        if (Session::get('loggedIn') <> 'officers') {
                                             echo "class='disabled'";
                                         }
                                         ?>><a tabindex="-1" href="#">අත්සන් සටහන</a></li>
                                         <li class="divider"></li>
                                         <li <?php
-                                        if (Session::get('loggedIn') <> 'officer') {
+                                        if (Session::get('loggedIn') <> 'officers') {
                                             echo "class='disabled'";
                                         }
                                         ?>><a tabindex="-1" href="#">මහා සභාවට පැමිණීම</a></li>
                                         <li class="divider"></li>
                                         <li <?php
-                                        if (Session::get('loggedIn') <> 'officer') {
+                                        if (Session::get('loggedIn') <> 'officers') {
                                             echo "class='disabled'";
                                         }
                                         ?>><a tabindex="-1" href="#">සහභාගීත්ව සලකුණු කිරීම</a></li>
                                         <li class="divider"></li>
                                         <li <?php
-                                        if (Session::get('loggedIn') <> 'officer') {
+                                        if (Session::get('loggedIn') <> 'officers') {
                                             echo "class='disabled'";
                                         }
                                         ?>><a tabindex="-1" href="#">මුදල් එකතු කිරීම</a></li>

@@ -477,6 +477,7 @@ function createPaymentsArray() {//getting payments table data into myTableArray 
         }
     });
     var urlPayments = $('#paymentsForm').attr('action');
+    alert(urlPayments);
     sendPaymentTableAjax(urlPayments, myTableArray);
 }
 
@@ -602,6 +603,41 @@ function sendExtraFundsDueTableAjax(url, data) {
 }
 
 //////////////////////////////////////////////////////////////////////// Endof Extra funds Due
+
+function createExtraFundsDueArray() {//getting sharepayment table data into myTableArray and ajax for sending data to db
+//    alert('clicked');
+    var myTableArray = [];
+    $("table#sharePayments tr").each(function () {
+        var arrayOfThisRow = [];
+        var tableData = $(this).find('td');
+        if (tableData.length > 0) {
+            tableData.each(function () {
+                arrayOfThisRow.push($(this).text());
+            });
+            myTableArray.push(arrayOfThisRow);
+        }
+    });
+    var urlExtraFundsDue = $('#sharePaymentsForm').attr('action');
+    sendSharePaymentTableAjax(urlExtraFundsDue, myTableArray);
+}
+
+function sendSharePaymentTableAjax(url, data) {
+//    alert(url);
+//    alert(data);
+    var ajaxData = JSON.stringify(data);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: {data: ajaxData},
+        cache: false,
+        success: function () {
+            $("#sharePayments").empty();
+            window.location.reload();
+        }
+    });
+}
+
+//////////////////////////////////////////////////////////////////////// Endof sharePayment
 
 
 function sendAttendanceAjax(url, date, data) {

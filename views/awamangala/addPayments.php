@@ -28,11 +28,11 @@
                     <div class="col-lg-7">
                         <input list="resonList" class="form-control" id="reson" name="reson" required/>
                         <datalist id="resonList">
-                            <option value="මහා සභාවට නොපැමිනීම">
-                            <option value="ශ්‍රම දානයට සහභාගී නොවීම්">
-                            <option value="සුසාන භූමියේ කටයුතු වලට සහභාගී නොවීම">
-                            <option value="අවමංගල්‍යට සහභාගී නොවීම">
-                            <option value="ව්‍යවස්ථාව උල්ලංගනය">
+                            <option value="">
+                            <option value="">
+                            <option value="">
+                            <option value="">
+                            <option value="">
                         </datalist>
                     </div>
                 </div>
